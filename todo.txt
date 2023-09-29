@@ -1,0 +1,5 @@
+Backend:
+    Set up database
+    Create controller, service, and repository classes
+    Dockerize application with docker compose
+    Create unit tests
