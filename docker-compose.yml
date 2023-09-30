@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  server:
+    image: maven:3.8.1-openjdk-11-slim
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql:db:3306/test
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+    working_dir: /app
+    volumes: .:/app
+    ports:
+      - "8080:8080"
+    depends_on: db
+  db:
+    image: mysql:8.1.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+    ports:
+      - "3306:3306"
