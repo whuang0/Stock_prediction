@@ -5,22 +5,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 @Entity
 @Table
 public class Test {
     @Id
-    @SequenceGenerator(name = "test_sequence", sequenceName = "test_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "test_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String message;
+
+    public Test() {
+
+    }
 
     public Test(String message) {
 
     }
 
-    public String getTest() {
+    public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

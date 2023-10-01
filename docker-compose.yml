@@ -3,16 +3,22 @@ version: "3.1"
 services:
   server:
     image: maven:3.8.1-openjdk-11-slim
+    command: mvn spring-boot:run
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql:db:3306/test
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/test
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_DATASOURCE_HIBERNATE_DDL_AUTO: update
     working_dir: /app
-    volumes: .:/app
+    volumes:
+      - ./backend:/app
+      - maven-repo:/root/.m2
     ports:
       - "8080:8080"
-    depends_on: db
+    depends_on:
+      - db
+    restart: on-failure:10
   db:
     image: mysql:8.1.0
     environment:
@@ -20,3 +26,11 @@ services:
       MYSQL_DATABASE: test
     ports:
       - "3306:3306"
+#    healthcheck:
+#      test: [ "CMD", "mysqladmin", "ping", "-uroot", "-proot" ]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+
+volumes:
+  maven-repo:

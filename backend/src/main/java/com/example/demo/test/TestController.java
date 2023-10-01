@@ -15,9 +15,10 @@ public class TestController {
         this.testService = testService;
     }
 
-    @GetMapping("/")
-    public String getTest() {
-        return testService.getTest();
+    @GetMapping
+    public String getMessage() {
+        System.out.println("Controller message!!!");
+        return testService.getMessage();
     }
 
 }
