@@ -15,7 +15,6 @@ public class TestService {
     }
 
     public String getMessage() {
-        System.out.println("Service message!!!");
         Optional<Test> testOptional = testRepository.findById((long) 1);
         if (testOptional.isPresent()) {
             return testOptional.get().getMessage();

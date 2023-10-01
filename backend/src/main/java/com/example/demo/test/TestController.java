@@ -17,7 +17,6 @@ public class TestController {
 
     @GetMapping
     public String getMessage() {
-        System.out.println("Controller message!!!");
         return testService.getMessage();
     }
 
