@@ -1,7 +1,3 @@
-How to run:
-run `docker-compose up`
+How to run: `docker-compose up`
 
-todo:
-backend:
-Determine data to be stored
-Create JUnit tests
+todo: Determine data to be stored and Create JUnit tests in backend
