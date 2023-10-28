@@ -5,7 +5,7 @@ services:
     image: maven:3.8.1-openjdk-11-slim
     command: mvn spring-boot:run
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/stocks
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/quote
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
@@ -23,7 +23,7 @@ services:
     image: mysql:8.1.0
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: stocks
+      MYSQL_DATABASE: quote
     ports:
       - "3306:3306"
 #    healthcheck:

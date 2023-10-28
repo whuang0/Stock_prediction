@@ -1,15 +1,15 @@
-package com.example.Backend.stocks;
+package com.example.Backend.quote;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class StocksConfig {
+public class QuoteConfig {
     @Bean
-    CommandLineRunner commandLineRunner(StocksRepository stocksRepository) {
+    CommandLineRunner commandLineRunner(QuoteRepository quoteRepository) {
         return args -> {
-            stocksRepository.save(new Stocks("Hello World"));
+            quoteRepository.save(new Quote("Hello World"));
         };
     }
 

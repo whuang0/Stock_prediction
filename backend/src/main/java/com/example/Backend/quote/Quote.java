@@ -1,4 +1,4 @@
-package com.example.Backend.stocks;
+package com.example.Backend.quote;
 
 import javax.persistence.Table;
 
@@ -12,7 +12,7 @@ import javax.persistence.Id;
 
 @Entity
 @Table
-public class Stocks {
+public class Quote {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -72,11 +72,11 @@ public class Stocks {
     private Double ttmEbitd;
     private Double debtEqtyQ;
 
-    public Stocks() {
+    public Quote() {
 
     }
 
-    public Stocks(String message) {
+    public Quote(String message) {
         this.message = message;
     }
 
