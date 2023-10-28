@@ -27,4 +27,8 @@ public class QuoteService {
         return null;
     }
 
+    public void addQuote(Quote quote) {
+        quoteRepository.save(quote);
+    }
+
 }
